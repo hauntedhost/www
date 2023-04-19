@@ -17,7 +17,7 @@
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ file.data.title }} | Elixir and JavaScript Web Developer</title>
-    <meta name="description" content="Hello, my name is Sean. I'm a senior Elixir and JavaScript web developer.">
+    <meta name="description" content="Hello, my name is Jules. I'm a senior Elixir and JavaScript web developer.">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -41,14 +41,14 @@
   <body id="{{ file.data.id }}">
     <header role="banner">
       <div class="logo">
-        <a href="/">seanomlor.com</a>
+        <a href="/" aria-label="Home">👻🏳️‍⚧️</a>
       </div>
 
       <div class="social">
-        <a href="https://github.com/seanomlor">
+        <a href="https://github.com/hauntedhost">
           <i class="fab fa-github-alt"></i>
         </a>
-        <a href="https://www.linkedin.com/in/seanomlor">
+        <a href="https://www.linkedin.com/in/hauntedhost">
           <i class="fab fa-linkedin"></i>
         </a>
         <a href="#contact">
@@ -90,7 +90,9 @@
       <div class="page-meta">
         <meta itemprop="datePublished" content="{{ file.data.createdAt }}">
         <span itemprop="dateModified" content="{{ file.data.updatedAt }}">
-          Page last updated {{ file.data.updatedAtDisplay }}.
+          Last updated
+          <span class="modified-date">{{ file.data.updatedAtDate }}</span>
+          <span class="modified-time">{{ file.data.updatedAtTime}}</span>
         </span>
       </div>
       <div class="site-meta">
@@ -101,7 +103,7 @@
     <script type="application/ld+json">
     {
       "@context": "http://www.schema.org",
-      "@id": "https://www.seanomlor.com/#person",
+      "@id": "https://jules.haunted.host/#person",
       "@type": "Person",
       "address": {
         "@type": "PostalAddress",
@@ -109,28 +111,15 @@
         "addressLocality": "Asheville",
         "addressRegion": "North Carolina"
       },
-      "birthDate": "1976-03-22",
-      "email": "somlor+schema@gmail.com",
-      "gender": "Male",
-      "image": "https://s.gravatar.com/avatar/2f1884ffd0d06fa7541684bcfa7857c4?s=512&r=g",
       "jobTitle": "Software Engineer",
-      "name": "Sean Omlor",
+      "name": "Jules Omlor",
       "nationality": {
         "name": "United States"
       },
       "sameAs": [
-        "https://github.com/seanomlor",
-        "https://keybase.io/seanomlor",
-        "https://lobste.rs/u/somlor",
-        "https://medium.com/@seanomlor",
-        "https://news.ycombinator.com/user?id=somlor",
-        "https://stackoverflow.com/users/679702/seanomlor",
-        "https://twitter.com/seanomlor",
-        "https://www.facebook.com/seanomlor",
-        "https://www.instagram.com/seanomlor",
-        "https://www.pinterest.com/seanomlor"
+        "https://github.com/hauntedhost"
       ],
-      "url": "https://www.seanomlor.com"
+      "url": "https://jules.haunted.host"
     }
     </script>
   </body>

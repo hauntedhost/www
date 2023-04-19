@@ -1,4 +1,4 @@
-# www.seanomlor.com
+# www
 
 ## Features:
 
@@ -63,7 +63,7 @@
     <meta property="og:type" content="profile">
     <meta property="og:image" content="...">
     <meta property="og:title" content="{{ file.data.title }} | Elixir and JavaScript Web Developer">
-    <meta property="og:description" content="Hello, my name is Sean. I'm a senior Elixir and JavaScript web developer.">
+    <meta property="og:description" content="Hello, my name is Jules. I'm a senior Elixir and JavaScript web developer.">
     <meta property="og:url" content="...">
     ```
 - [ ] use favicon.svg - need vector editor to fill ghost

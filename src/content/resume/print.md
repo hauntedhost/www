@@ -2,11 +2,13 @@
 title: 'Resume'
 ---
 
-# Jules Omlor - Resume [<i class="far fa-file-pdf"></i>](/media/jules-omlor-resume.pdf) {.resume}
+# Jules Omlor 🏳️‍⚧️{.resume}
 
-## Elixir and JavaScript Web Developer {.resume}
+## Senior Elixir and JavaScript Web Developer {.resume}
 
-www.haunted.host — hello@haunted.host — 215-317-0255 {.resume}
+<!-- <i class="far fa-envelope"></i> hello@haunted.host &nbsp;—&nbsp; <i class="fa fa-mobile-alt"></i> 215-317-0255 &nbsp;—&nbsp; <i class="fa fa-globe"></i> www.haunted.host {.resume .oomf} -->
+
+hello@haunted.host &nbsp;—&nbsp; 215-317-0255 &nbsp;—&nbsp; www.haunted.host {.resume .oomf}
 
 ### Summary
 
@@ -14,24 +16,15 @@ Web application developer with over twenty years of professional experience. I l
 
 ### Skills
 
-#### Backend
-
-- Elixir, Phoenix, Ecto, Absinthe (previously Ruby, Rails, Sinatra)
-- SQL, PostgreSQL, MariaDB, MySQL, SQLite, Amazon RDS
-- Elasticsearch, Solr, Amazon CloudSearch
-
-#### Frontend
-
-- JavaScript, TypeScript, React.js (previously Ember.js, Backbone.js, jQuery)
+- Elixir, Phoenix, Ecto, Absinthe, GraphQL (<i class="fa fa-history"></i> Ruby, Rails, Sinatra)
+- PostgreSQL, MariaDB, MySQL, SQLite, Amazon RDS
+- JavaScript, TypeScript, React.js (<i class="fa fa-history"></i> Ember.js, Backbone.js, jQuery)
+- Elasticsearch, Amazon CloudSearch, Solr
 - ClojureScript, Reagent/re-frame, Elm
-- Vite, Webpack, npm, yarn, Gulp
-- HTML, CSS, SASS/SCSS, Responsive Design
-
-#### Devops, etc.
-
-- AWS, Elastic Beanstalk, Digital Ocean, Cloudflare, Heroku, Azure
-- Linux, Debian, Amazon Linux, nginx, GeoIP, Apache
 - Docker, Vagrant, NixOS, Ansible
+- Linux, Debian, Amazon Linux, nginx, GeoIP, Apache
+- AWS, Elastic Beanstalk, Digital Ocean, Heroku, Cloudflare
+- Vite, Webpack, Gulp, npm, yarn
 - Rust, Python, Bash, Lua
 
 ### Experience {#experience}
@@ -54,12 +47,6 @@ June 2014 to November 2015 (1½ years)
 
 Lead developer on small team for full service digital agency. Worked on JavaScript codebase for one of the largest NYC real estate firms. Migrated CloudSearch to hosted Elasticsearch for significant savings and performance.
 
-**Appgravity** — Chicago, IL  
-<span class="oomf">Lead Ruby on Rails Developer</span>  
-February 2014 to Present (~2 years)
-
-Rewrote core code, central to the application, leading to 100-200% speed increase in bi-weekly tasks processing multi-gigabyte JSON files. Implemented multi-identity social auth login/signup through Facebook and Google+.
-
 **Topspin Media** — Los Angeles, CA  
 <span class="oomf">Software Engineer</span>  
 August 2013 to December 2014 (1½ years)
@@ -75,13 +62,11 @@ Contract services for clients in the USA and worldwide. Designed and developed c
 ### Education
 
 **App Academy** — San Francisco, CA  
-Web Application Development  
-2013 (3 months)
+Web Application Development (2013)
 
 Three month, full-time, web development lab, focused on Ruby, JavaScript and SQL, with an emphasis on algorithm competency and software development best practices.
 
 **The Art Institute of Philadelphia** — Philadelphia, PA  
-3D Computer Animation (AS)  
-1997 - 2000
+3D Computer Animation (1997 - 2000)
 
-Developed a strong foundation in drawing, design, and illustration, with a specialization in computer generated 3D modeling, rendering and animation.
+Graduated with strong foundation in drawing, design, and illustration, with a specialization in computer generated 3D modeling, rendering and animation.

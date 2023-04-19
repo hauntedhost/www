@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { Buffer } from 'buffer'
 import crypto from 'crypto'
 import dayjs from 'dayjs'
 import fs from 'fs'
@@ -13,7 +14,7 @@ import gulpTap from 'gulp-tap'
 import gulpWrap from 'gulp-wrap'
 import MarkdownIt from 'markdown-it'
 import markdownItAttrs from 'markdown-it-attrs'
-import markdownItNamedHeadings from 'markdown-it-named-headings'
+// import markdownItNamedHeadings from 'markdown-it-named-headings'
 import markdownItBracketedSpans from 'markdown-it-bracketed-spans'
 import markdownItFootnote from 'markdown-it-footnote'
 import markdownItImplicitFigures from 'markdown-it-implicit-figures'
@@ -52,7 +53,7 @@ markdownIt.renderer.rules.footnote_caption = (tokens, idx) => {
 
 // get subresource integrity sha for given asset
 // see: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
-const sri = file => {
+const sri = (file) => {
   const s = fs.readFileSync(file)
   const sha = crypto.createHash('sha384')
   sha.update(s)
@@ -70,7 +71,7 @@ const markdown = () =>
     .pipe(gulpFrontMatter({ property: 'data' }))
     // add info about file
     .pipe(
-      gulpData(file => {
+      gulpData((file) => {
         const stats = fs.statSync(file.path)
         const createdAt = dayjs(stats.birthtime)
         const updatedAt = dayjs(stats.mtime)
@@ -80,21 +81,23 @@ const markdown = () =>
           createdAtDisplay: createdAt.format('MMMM D, YYYY h:mma'),
           updatedAt: updatedAt.toISOString(),
           updatedAtDisplay: updatedAt.format('MMMM D, YYYY h:mma'),
+          updatedAtDate: updatedAt.format('MMMM D, YYYY'),
+          updatedAtTime: updatedAt.format('h:mma'),
         }
       })
     )
     // pre-process *.md.njk as nunjucks
     .pipe(
       gulpIf(
-        file => file.extname === '.njk',
-        gulpWrap(data => data.file.contents.toString(), null, {
+        (file) => file.extname === '.njk',
+        gulpWrap((data) => data.file.contents.toString(), null, {
           engine: 'nunjucks',
         })
       )
     )
     // remove .njk extensions
     .pipe(
-      gulpRename(path => {
+      gulpRename((path) => {
         if (path.extname === '.njk') {
           path.extname = '.md'
           path.basename = path.basename.split('.md')[0]
@@ -127,7 +130,7 @@ const markdown = () =>
 
     */
     .pipe(
-      gulpData(file => ({
+      gulpData((file) => ({
         id: path
           .relative('./dist', file.path)
           .replace(/\//, '--')
@@ -151,7 +154,7 @@ const markdown = () =>
     )
     // convert markdown to html
     .pipe(
-      gulpTap(file => {
+      gulpTap((file) => {
         const result = markdownIt.render(file.contents.toString())
         file.contents = Buffer.from(result)
         return file
@@ -160,7 +163,7 @@ const markdown = () =>
     // wrap with nunjucks template from data.layout, default index.njk
     .pipe(
       gulpWrap(
-        data => {
+        (data) => {
           const template = `${path.parse(data.layout || 'default').name}.njk`
           return fs.readFileSync(`src/templates/${template}`).toString()
         },

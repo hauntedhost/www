@@ -1,7 +1,7 @@
 ---
 title: 'About Me'
 ---
-My name is Sean Omlor. I am a web developer creeping up on twenty years of professional experience.
+My name is Jules. I am a web developer creeping up on twenty years of professional experience.
 
 <!-- ## 1980s -->
 
@@ -40,12 +40,12 @@ After high school, I majored in computer science as the obvious thing. These wer
 
 In retrospect, I realize that my interest in programming did not include manual memory management.[^rust] I just wanted to create useful software.
 
-[^rust]: Fast-forward, I _am_ enjoying Rust's approach to manual memory management.
+[^rust]: Fast-forward, I _am_ enjoying Rust's approach to memory management.
 
 My young mind concluded, "well if I'm not a scientist, I must be an artist." I switched schools and to an art major with a focus on 3D computer modeling and animation.[^3d]
 
 [^3d]:
-    Using mainly [3DS Max](https://www.autodesk.com/products/3ds-max) and [Maya](https://www.autodesk.com/products/maya).
+    Using mainly [3DS Max](https://www.autodesk.com/products/3ds-max) and [Maya](https://www.autodesk.com/products/maya). More recently I've started using Blender.
 
 Fatefully, part of my curriculum included HTML, CSS, and JavaScript, three Not-Serious Technologies&trade; that computer science degrees would certainly never bother with at the time.
 
@@ -100,9 +100,9 @@ As I gained more experience with production Rails systems, my few, specific frus
 
 In early 2015 I began my journey into functional programming, studying Clojure, Elixir[^elixir], and Haskell.
 
-Just one year later, I took a full-time role leading the development of a complex backend in Elixir for an [AI startup](https://www.statmuse.com).
+Just one year later, I took a full-time role leading the development of a complex backend in Elixir for a natural language [AI startup](https://www.statmuse.com).
 
-I've been shipping Elixir to production ever since, over three years now. I continue to feel impressed and grateful for this fantastic language, ecosystem and community.
+I've been shipping Elixir to production ever since, over six years now. I continue to feel impressed and grateful for this fantastic language, ecosystem and community.
 
 [^elixir]:
     ![](/images/book-programming-elixir.jpg)
@@ -117,9 +117,9 @@ What does the future hold?
 - Dig deeper into GraphQL and Elasticsearch
 - Broaden my understanding of [network engineering](https://www.professormesser.com/network-plus/n10-007/n10-007-training-course/)
 - Find my sea legs with Rust
-- Continue climbing the [Haskell](https://github.com/seanomlor/programming-in-haskell) mountain
+- Continue climbing the [Haskell](https://github.com/hauntedhost/programming-in-haskell) mountain
 - Keep poking at [category theory](https://www.blurb.com/b/9008339-category-theory-for-programmers) and [dependent types](https://www.amazon.com/Little-Typer-MIT-Press/dp/0262536439)
 
-[^erlang]: Also Erlang!
+[^erlang]: Also Erlang
 
-[^tojs]: Also [ClojureScript](https://github.com/Day8/re-frame), [TypeScript](https://www.typescriptlang.org) and [Reason](https://reasonml.github.io)!
+[^tojs]: Also [TypeScript](https://www.typescriptlang.org) and [ClojureScript](https://github.com/Day8/re-frame)
