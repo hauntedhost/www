@@ -1,28 +1,28 @@
-import _ from 'lodash'
-import { Buffer } from 'buffer'
-import crypto from 'crypto'
-import dayjs from 'dayjs'
-import fs from 'fs'
-import gulp from 'gulp'
-import gulpData from 'gulp-data'
-import gulpFrontMatter from 'gulp-front-matter'
-import gulpHtmlhint from 'gulp-htmlhint'
-import gulpIf from 'gulp-if'
-import gulpPlumber from 'gulp-plumber'
-import gulpRename from 'gulp-rename'
-import gulpTap from 'gulp-tap'
-import gulpWrap from 'gulp-wrap'
-import MarkdownIt from 'markdown-it'
-import markdownItAttrs from 'markdown-it-attrs'
+import _ from 'lodash';
+import { Buffer } from 'buffer';
+import crypto from 'crypto';
+import dayjs from 'dayjs';
+import fs from 'fs';
+import gulp from 'gulp';
+import gulpData from 'gulp-data';
+import gulpFrontMatter from 'gulp-front-matter';
+import gulpHtmlhint from 'gulp-htmlhint';
+import gulpIf from 'gulp-if';
+import gulpPlumber from 'gulp-plumber';
+import gulpRename from 'gulp-rename';
+import gulpTap from 'gulp-tap';
+import gulpWrap from 'gulp-wrap';
+import MarkdownIt from 'markdown-it';
+import markdownItAttrs from 'markdown-it-attrs';
 // import markdownItNamedHeadings from 'markdown-it-named-headings'
-import markdownItBracketedSpans from 'markdown-it-bracketed-spans'
-import markdownItFootnote from 'markdown-it-footnote'
-import markdownItImplicitFigures from 'markdown-it-implicit-figures'
-import markdownItPrism from 'markdown-it-prism'
-import path from 'path'
+import markdownItBracketedSpans from 'markdown-it-bracketed-spans';
+import markdownItFootnote from 'markdown-it-footnote';
+import markdownItImplicitFigures from 'markdown-it-implicit-figures';
+import markdownItPrism from 'markdown-it-prism';
+import path from 'path';
 
-import errorHandler from './errorHandler'
-import { globs } from '../gulp.config.js'
+import errorHandler from './errorHandler';
+import { globs } from '../gulp.config.js';
 
 const markdownIt = new MarkdownIt({
   html: true,
@@ -43,22 +43,22 @@ const markdownIt = new MarkdownIt({
   // add <figure> around <img> occuring on their own line
   .use(markdownItImplicitFigures)
   // add code highlight classes
-  .use(markdownItPrism)
+  .use(markdownItPrism);
 
 // use bare numbers for footnote refs instead of wrapping in brackets
 markdownIt.renderer.rules.footnote_caption = (tokens, idx) => {
-  const n = Number(tokens[idx].meta.id + 1).toString()
-  return tokens[idx].meta.subId > 0 ? n + ':' + tokens[idx].meta.subId : n
-}
+  const n = Number(tokens[idx].meta.id + 1).toString();
+  return tokens[idx].meta.subId > 0 ? n + ':' + tokens[idx].meta.subId : n;
+};
 
 // get subresource integrity sha for given asset
 // see: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
 const sri = (file) => {
-  const s = fs.readFileSync(file)
-  const sha = crypto.createHash('sha384')
-  sha.update(s)
-  return `sha384-${sha.digest('base64')}`
-}
+  const s = fs.readFileSync(file);
+  const sha = crypto.createHash('sha384');
+  sha.update(s);
+  return `sha384-${sha.digest('base64')}`;
+};
 
 // task:
 // - copy raw markdown
@@ -72,9 +72,9 @@ const markdown = () =>
     // add info about file
     .pipe(
       gulpData((file) => {
-        const stats = fs.statSync(file.path)
-        const createdAt = dayjs(stats.birthtime)
-        const updatedAt = dayjs(stats.mtime)
+        const stats = fs.statSync(file.path);
+        const createdAt = dayjs(stats.birthtime);
+        const updatedAt = dayjs(stats.mtime);
 
         return {
           createdAt: createdAt.toISOString(),
@@ -83,7 +83,7 @@ const markdown = () =>
           updatedAtDisplay: updatedAt.format('MMMM D, YYYY h:mma'),
           updatedAtDate: updatedAt.format('MMMM D, YYYY'),
           updatedAtTime: updatedAt.format('h:mma'),
-        }
+        };
       })
     )
     // pre-process *.md.njk as nunjucks
@@ -99,8 +99,8 @@ const markdown = () =>
     .pipe(
       gulpRename((path) => {
         if (path.extname === '.njk') {
-          path.extname = '.md'
-          path.basename = path.basename.split('.md')[0]
+          path.extname = '.md';
+          path.basename = path.basename.split('.md')[0];
         }
       })
     )
@@ -155,17 +155,17 @@ const markdown = () =>
     // convert markdown to html
     .pipe(
       gulpTap((file) => {
-        const result = markdownIt.render(file.contents.toString())
-        file.contents = Buffer.from(result)
-        return file
+        const result = markdownIt.render(file.contents.toString());
+        file.contents = Buffer.from(result);
+        return file;
       })
     )
     // wrap with nunjucks template from data.layout, default index.njk
     .pipe(
       gulpWrap(
         (data) => {
-          const template = `${path.parse(data.layout || 'default').name}.njk`
-          return fs.readFileSync(`src/templates/${template}`).toString()
+          const template = `${path.parse(data.layout || 'default').name}.njk`;
+          return fs.readFileSync(`src/templates/${template}`).toString();
         },
         null,
         { engine: 'nunjucks' }
@@ -173,8 +173,8 @@ const markdown = () =>
     )
     .pipe(gulpHtmlhint())
     .pipe(gulpHtmlhint.reporter('htmlhint-stylish'))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist'));
 
-markdown.displayName = 'markdown'
+markdown.displayName = 'markdown';
 
-export default markdown
+export default markdown;

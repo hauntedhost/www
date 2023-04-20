@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
  * Given a mediaQuery string and a handler function, attach a listener to the
  * window and call the handler with true|false when the media query changes.
@@ -7,10 +8,11 @@
  *
  */
 const addMediaQueryListener = (mediaQuery, handler) => {
-  const mediaQueryList = window.matchMedia(mediaQuery)
-  mediaQueryList.addListener((e) => handler(e.matches))
-  mediaQueryList.matches && handler(true)
-}
+  const mediaQueryList = window.matchMedia(mediaQuery);
+  // FIXME: deprecated addListener
+  mediaQueryList.addListener((e) => handler(e.matches));
+  mediaQueryList.matches && handler(true);
+};
 
 /**
  * Given a sidenotes container element, presumably from left or right aside,
@@ -29,8 +31,8 @@ const addMediaQueryListener = (mediaQuery, handler) => {
  * calls for sidenote containers.
  */
 const createInsertSidenote = () => {
-  const leftEl = document.querySelector('#sidenotes-left')
-  const rightEl = document.querySelector('#sidenotes-right')
+  const leftEl = document.querySelector('#sidenotes-left');
+  const rightEl = document.querySelector('#sidenotes-right');
 
   /**
    * Given a foonote reference element, presumably from main container, build
@@ -41,89 +43,89 @@ const createInsertSidenote = () => {
    *
    */
   return (footnoteRefEl) => {
-    const [_, number] = footnoteRefEl.id.split('fnref')
-    const footnoteId = footnoteRefEl.hash.substr(1)
-    const footnoteEl = document.querySelector(`li#${footnoteId}`)
-    const sidenotesEl = number % 2 === 0 ? leftEl : rightEl
+    const [_, number] = footnoteRefEl.id.split('fnref');
+    const footnoteId = footnoteRefEl.hash.substr(1);
+    const footnoteEl = document.querySelector(`li#${footnoteId}`);
+    const sidenotesEl = number % 2 === 0 ? leftEl : rightEl;
 
     // init position is same vertical position as footnote
-    const offsetTop = footnoteRefEl.offsetTop
+    const offsetTop = footnoteRefEl.offsetTop;
 
     //create sidenote
-    const sidenoteEl = document.createElement('div')
+    const sidenoteEl = document.createElement('div');
 
-    sidenoteEl.setAttribute('id', `sn${number}`)
-    sidenoteEl.setAttribute('class', `sidenote`)
-    sidenoteEl.setAttribute('style', `top: ${offsetTop}px;`)
+    sidenoteEl.setAttribute('id', `sn${number}`);
+    sidenoteEl.setAttribute('class', `sidenote`);
+    sidenoteEl.setAttribute('style', `top: ${offsetTop}px;`);
     sidenoteEl.innerHTML = `
       <sup class="sidenote-number">${number}</sup>
       <div class="sidenote-content">
         ${footnoteEl.innerHTML}
       </div>
-    `
+    `;
 
     // insert sidenote!
-    sidenotesEl.appendChild(sidenoteEl)
+    sidenotesEl.appendChild(sidenoteEl);
 
     // attach event listeners for mouse hovers in both directions
     footnoteRefEl.addEventListener('mouseenter', () => {
-      sidenoteEl.classList.add('hover')
-    })
+      sidenoteEl.classList.add('hover');
+    });
 
     footnoteRefEl.addEventListener('mouseleave', () => {
-      sidenoteEl.classList.remove('hover')
-    })
+      sidenoteEl.classList.remove('hover');
+    });
 
     sidenoteEl.addEventListener('mouseenter', () => {
-      footnoteRefEl.classList.add('hover')
-    })
+      footnoteRefEl.classList.add('hover');
+    });
 
     sidenoteEl.addEventListener('mouseleave', () => {
-      footnoteRefEl.classList.remove('hover')
-    })
+      footnoteRefEl.classList.remove('hover');
+    });
 
-    return sidenoteEl
-  }
-}
+    return sidenoteEl;
+  };
+};
 
 /**
  * Set a mutable done var to false and add listener to insert sidenotes once,
  * now or whenever asides become visible at min-width breakpoint.
  */
 const sidenotes = () => {
-  let done = false
+  let done = false;
   window.addEventListener('load', () => {
     addMediaQueryListener('(min-width: 1280px)', (_e) => {
       if (!done) {
-        done = true
+        done = true;
 
         // insert sidenotes
-        const insertSideNote = createInsertSidenote()
-        document.querySelectorAll('sup.footnote-ref a').forEach(insertSideNote)
+        const insertSideNote = createInsertSidenote();
+        document.querySelectorAll('sup.footnote-ref a').forEach(insertSideNote);
 
         // after dom dust settles, reinspect sidenotes and reposition overlaps
         // TODO: add logic when sidenote is > a chosen max height, set height
         // with overflow-y: scroll
         setTimeout(() => {
           document.querySelectorAll('.sidenote').forEach((el) => {
-            const nextEl = el.nextSibling
+            const nextEl = el.nextSibling;
             if (nextEl) {
-              const newOffsetTop = parseInt(el.style.top) + el.offsetHeight
+              const newOffsetTop = parseInt(el.style.top) + el.offsetHeight;
               if (newOffsetTop > nextEl.offsetTop) {
-                nextEl.setAttribute('style', `top: ${newOffsetTop}px;`)
+                nextEl.setAttribute('style', `top: ${newOffsetTop}px;`);
               }
             }
-          })
+          });
 
           document
             .querySelectorAll('#sidenotes-left, #sidenotes-right')
-            .forEach((el) => el.classList.add('show'))
-        }, 50)
+            .forEach((el) => el.classList.add('show'));
+        }, 50);
 
         // console.info('sidenotes: done.')
       }
-    })
-  })
-}
+    });
+  });
+};
 
-export default sidenotes
+export default sidenotes;

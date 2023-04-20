@@ -2,11 +2,11 @@
 title: 'Resume'
 ---
 
-# Jules Omlor - Resume [<i class="far fa-file-pdf"></i>](/media/jules-omlor-resume.pdf) {.resume}
+# Jules Omlor [<i class="far fa-file-pdf"></i>](/media/jules-omlor-resume.pdf) {.resume}
 
 ## Elixir and JavaScript Web Developer {.resume}
 
-www.haunted.host — hello@haunted.host — 215-317-0255 {.resume}
+smooth.sand4171 _[@]_ haunted.host — 215-317-0255 — www.haunted.host {.resume}
 
 ### Summary
 

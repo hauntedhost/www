@@ -1,16 +1,16 @@
-import gulp from 'gulp'
-import autoprefixer from 'autoprefixer'
-import gulpPlumber from 'gulp-plumber'
-import gulpPostcss from 'gulp-postcss'
-import gulpRename from 'gulp-rename'
-import gulpRev from 'gulp-rev'
-import gulpSass from 'gulp-sass'
-import gulpStylelint from 'gulp-stylelint'
-import postcssClean from 'postcss-clean'
-import postcssReporter from 'postcss-reporter'
+import gulp from 'gulp';
+import autoprefixer from 'autoprefixer';
+import gulpPlumber from 'gulp-plumber';
+import gulpPostcss from 'gulp-postcss';
+import gulpRename from 'gulp-rename';
+import gulpRev from 'gulp-rev';
+import gulpSass from 'gulp-sass';
+import gulpStylelint from 'gulp-stylelint';
+import postcssClean from 'postcss-clean';
+import postcssReporter from 'postcss-reporter';
 
-import errorHandler from './errorHandler'
-import { globs } from '../gulp.config.js'
+import errorHandler from './errorHandler';
+import { globs } from '../gulp.config.js';
 
 const styles = () =>
   gulp
@@ -39,8 +39,8 @@ const styles = () =>
         merge: true,
       })
     )
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist'));
 
-styles.displayName = 'styles'
+styles.displayName = 'styles';
 
-export default styles
+export default styles;

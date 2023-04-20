@@ -1,6 +1,6 @@
-import { create as browserSyncCreate } from 'browser-sync'
+import { create as browserSyncCreate } from 'browser-sync';
 
-const browserSync = browserSyncCreate()
+const browserSync = browserSyncCreate();
 
 const startServer = () =>
   browserSync.init({
@@ -11,18 +11,18 @@ const startServer = () =>
         bs.utils.serveStatic.mime.define({
           'text/plain': ['md'],
           'application/manifest+json': ['webmanifest'],
-        })
+        });
       },
     },
-  })
+  });
 
-startServer.displayName = 'startServer'
+startServer.displayName = 'startServer';
 
-const reloadServer = done => {
-  browserSync.reload()
-  done()
-}
+const reloadServer = (done) => {
+  browserSync.reload();
+  done();
+};
 
-reloadServer.displayName = 'reloadServer'
+reloadServer.displayName = 'reloadServer';
 
-export { startServer, reloadServer }
+export { startServer, reloadServer };

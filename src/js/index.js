@@ -1,19 +1,20 @@
-import sidenotes from './sidenotes'
+import sidenotes from './sidenotes';
 
-sidenotes()
+sidenotes();
 
 // TODO: move to toggleFootnoteImages
+// eslint-disable-next-line no-undef
 document.addEventListener(
   'click',
-  e => {
+  (e) => {
     if (e.target.matches('section.footnotes figure')) {
-      const el = e.target.firstChild
+      const el = e.target.firstChild;
       if (el.classList.contains('show')) {
-        el.classList.remove('show')
+        el.classList.remove('show');
       } else {
-        el.classList.add('show')
+        el.classList.add('show');
       }
     }
   },
   false
-)
+);

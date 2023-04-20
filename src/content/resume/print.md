@@ -8,7 +8,7 @@ title: 'Resume'
 
 <!-- <i class="far fa-envelope"></i> hello@haunted.host &nbsp;—&nbsp; <i class="fa fa-mobile-alt"></i> 215-317-0255 &nbsp;—&nbsp; <i class="fa fa-globe"></i> www.haunted.host {.resume .oomf} -->
 
-hello@haunted.host &nbsp;—&nbsp; 215-317-0255 &nbsp;—&nbsp; www.haunted.host {.resume .oomf}
+hello [@] haunted.host &nbsp;—&nbsp; 215-317-0255 &nbsp;—&nbsp; www.haunted.host {.resume .oomf}
 
 ### Summary
 

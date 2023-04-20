@@ -1,21 +1,21 @@
-import _ from 'lodash'
-import gulp from 'gulp'
-import gulpNoop from 'gulp-noop'
-import gulpRsync from 'gulp-rsync'
-import inquirer from 'inquirer'
-import PluginError from 'plugin-error'
+import _ from 'lodash';
+import gulp from 'gulp';
+import gulpNoop from 'gulp-noop';
+import gulpRsync from 'gulp-rsync';
+import inquirer from 'inquirer';
+import PluginError from 'plugin-error';
 
-const deployRsync = done => {
-  const env = process.env.NODE_ENV
-  const hostname = process.env.RSYNC_HOSTNAME
-  const destination = process.env.RSYNC_DESTINATION
+const deployRsync = (done) => {
+  const env = process.env.NODE_ENV;
+  const hostname = process.env.RSYNC_HOSTNAME;
+  const destination = process.env.RSYNC_DESTINATION;
 
   if (_.some([hostname, destination], _.negate(_.isString))) {
     throw new PluginError({
       plugin: 'deploy',
       message: 'missing hostname or destination',
       showProperties: false,
-    })
+    });
   }
 
   inquirer
@@ -31,7 +31,7 @@ const deployRsync = done => {
       `,
       },
     ])
-    .then(res =>
+    .then((res) =>
       res.confirm
         ? gulp
             .src('dist')
@@ -50,9 +50,9 @@ const deployRsync = done => {
             .pipe(gulpNoop())
             .on('finish', done)
         : done()
-    )
-}
+    );
+};
 
-deployRsync.displayName = 'deployRsync'
+deployRsync.displayName = 'deployRsync';
 
-export default deployRsync
+export default deployRsync;

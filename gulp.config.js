@@ -8,6 +8,6 @@ const globs = {
   scripts: 'src/js/**/*.js',
   styles: 'src/css/**/*.+(scss|css)',
   templates: 'src/templates/**/*.njk',
-}
+};
 
-export { globs }
+export { globs };
